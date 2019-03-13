@@ -1,7 +1,7 @@
 Riptide Dependencies
 ====================
 
-This repository contains all of the dependencies for the [Riptide](https://github.com/osu-uwrt/riptide_software) and [Eddy](https://github.com/osu-uwrt/eddy_software) AUV Software Platforms. This is a one-stop-shop for installing everything you need from ROS Kinetic Kame to all of our ROS-related dependencies to all of our non-ROS-related dependencies.
+This repository contains all of the dependencies for the [Riptide](https://github.com/osu-uwrt/riptide_software) and [Eddy](https://github.com/osu-uwrt/eddy_software) AUV Software Platforms. This is a one-stop-shop for installing everything you need including: ROS Kinetic Kame, all of our ROS-related dependencies, and all of our non-ROS-related dependencies.
 
 Support Operating Systems: Ubuntu 16.04
 
@@ -14,7 +14,7 @@ The Ohio State University
 
 # How is This Repository Configured?
 
-This repo is simply a collection of all of our dependencies for your own convenience. Although this repo is a catkin workspace, every ROS packages you see is actually setup as a **git submodule**. The [osu-uwrt](https://github.com/osu-uwrt) organization already has these ROS packages setup as forks from which we may update their code. If you wish to be a collaborator on any of these packages, then please go to our github page and fork the desired repo so you can start coding.
+This repo is simply a collection of all of our dependencies for your own convenience. Although this repo is a catkin workspace, every ROS packages you see is actually setup as a **git submodule** (note: when cloning this repo you will have to invoke the `--recursive` command). The [osu-uwrt](https://github.com/osu-uwrt) organization already has these ROS packages setup as forks from which we may update their code. If you wish to be a collaborator on any of these packages, then please go to our github page and fork the desired repo so you can start coding.
 
 ## ROS Packages
 ### [darknet_ros](https://github.com/osu-uwrt/darknet_ros)
@@ -22,8 +22,8 @@ This package contains the ROS interface for the machine-learning algorithm known
 ### [imu_3dm_gx4](https://github.com/osu-uwrt/imu_3dm_gx4)
 This is the driver for our [LordMicrostrain IMU 3DM-GX4](https://www.microstrain.com/inertial/3dm-gx4-25).
 
-## Non-ROS Packages
-### installation/
+## Non-ROS Libraries
+### installation
 This folder contains a series of install scripts that will install the corresponding package to your Ubuntu machine.
 
 # Initial Setup
@@ -51,8 +51,26 @@ git remote -v
 ```
 You will see both a remote to your fork and to the main repo.
 
-## Initializing the Darknet Submodule
-
 # Installing Our Dependencies
 
 ## First-time Setup
+If you are setting up your computer for the first time to work with either the `riptide_software` or `eddy_software` repos, then you will likely need to install everything. Don't worry, we have an install script that does just that.
+```
+cd ~/osu-uwrt/riptide_dependencies/src/installation/
+./install_everything.sh
+```
+Now, you may go back to the `riptide_software` or `eddy_software` repo and continue where you left off with the instructions.
+
+## Installing/Updating ROS-related Dependencies
+This repo is equipped with a script that handles all of this for you, and it will be updated as new submodules are added.
+```
+cd ~/osu-uwrt/riptide_dependencies/src/
+./update_rospkgs.sh
+```
+
+## Installing non-ROS Dependencies
+Search for the appropriate install script inside the `installation/` folder and run the script.
+```
+cd ~/osu-uwrt/riptide_dependencies/src/installation
+./install_<some_library>.sh
+```
