@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $UID == 0 ]]; then
-	echo "Please do not run update_rosdeps.sh as root"
+	echo "Please do not run update_rospkgs.sh as root"
 	exit 1
 fi
 
@@ -20,4 +20,4 @@ git pull
 
 echo ""
 cd ${RIPDEP}
-sudo su -c src/install_rosdeps.sh root
+sudo su -c src/installation/install_rospkgs.sh root

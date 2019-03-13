@@ -1,9 +1,10 @@
-# Acoustics Dependencies
+#!/bin/sh
 
+# Acoustics Dependencies
 RIPDEP=~/osu-uwrt/riptide_dependencies
 
 # Setup libokFrontPanel for FPGA
-cd ${RIPDEP}/src/non_rosdeps/tar_files/
+cd ${RIPDEP}/src/installation/tar_files/
 tar -zxf FrontPanel-Ubuntu16.04LTS-x64-5.0.2.tgz
 cd FrontPanel-Ubuntu16.04LTS-x64-5.0.2
 chmod +x install.sh
