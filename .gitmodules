@@ -1,0 +1,6 @@
+[submodule "imu_3dm_gx4"]
+	path = imu_3dm_gx4
+	url = https://github.com/osu-uwrt/imu_3dm_gx4.git
+[submodule "darknet_ros"]
+	path = darknet_ros
+	url = https://github.com/osu-uwrt/darknet_ros.git
