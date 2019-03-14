@@ -7,13 +7,13 @@ fi
 
 RIPDEP=~/osu-uwrt/riptide_dependencies
 
-echo "Submodule Update: imu_3dm_gx4"
+echo "SUBMODULE: imu_3dm_gx4"
 cd ${RIPDEP}/src/imu_3dm_gx4/
 git checkout master
 git pull
 
 echo ""
-echo "Submodule Update: darknet_ros"
+echo "SUBMODULE: darknet_ros"
 cd ${RIPDEP}/src/darknet_ros/
 git checkout master
 git pull

@@ -7,8 +7,13 @@ sudo apt-get update
 sudo apt-get -y install ros-kinetic-desktop-full
 sudo rosdep init
 rosdep update
-echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+
+s1="source /opt/ros/kinetic/setup.bash"
+if ! grep -q "$s1" ~/.bashrc; then
+    echo $s1 ~/.bashrc
+fi
 source ~/.bashrc
+
 sudo apt-get -y install python-rosinstall python-rosinstall-generator python-wstool build-essential
 sudo apt-get -y install ros-kinetic-pointgrey-camera-driver 
 sudo apt-get -y install ros-kinetic-control-toolbox
