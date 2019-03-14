@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Install Ceres
 ceres_version="ceres-solver-1.14.0"
 sudo apt-get -y install cmake
