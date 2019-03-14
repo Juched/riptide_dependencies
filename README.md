@@ -1,7 +1,7 @@
 Riptide Dependencies
 ====================
 
-This repository contains all of the dependencies for the [Riptide](https://github.com/osu-uwrt/riptide_software) and [Eddy](https://github.com/osu-uwrt/eddy_software) AUV Software Platforms. This is a one-stop-shop for installing everything you need including: ROS Kinetic Kame, all of our ROS-related dependencies, and all of our non-ROS-related dependencies.
+This repository contains all of the dependencies for the [Riptide](https://github.com/osu-uwrt/riptide_software) and [Eddy](https://github.com/osu-uwrt/eddy_software) AUV Software Platforms. This is a one-stop-shop for installing everything you need including: ROS Kinetic Kame, specific ROS packages, and all other libraries.
 
 Support Operating Systems: Ubuntu 16.04
 
@@ -14,15 +14,17 @@ The Ohio State University
 
 # How is This Repository Configured?
 
-This repo is simply a collection of all of our dependencies for your own convenience. Although this repo is a catkin workspace, every ROS packages you see is actually setup as a **git submodule** (note: when cloning this repo you will have to invoke the `--recursive` command). The [osu-uwrt](https://github.com/osu-uwrt) organization already has these ROS packages setup as forks from which we may update their code. If you wish to be a collaborator on any of these packages, then please go to our github page and fork the desired repo so you can start coding.
+This repo is simply a collection of all of our dependencies for your own convenience. Although this repo is a catkin workspace, every ROS package you see is actually setup as a **git submodule** (note: when cloning this repo you will have to invoke the `--recursive` command). The [osu-uwrt](https://github.com/osu-uwrt) organization already has individual repos for these ROS packages from which we may update their code. If you wish to be a collaborator on any of these packages, then please go to our github page and fork the desired repo so you can start coding. Usage of git submodules allows us to have a single repo that links to all other repos and makes it easy to stay up-to-date as our dependencies change.
 
 ## ROS Packages
 ### [darknet_ros](https://github.com/osu-uwrt/darknet_ros)
 This package contains the ROS interface for the machine-learning algorithm known as [You Only Look Once (YOLO)](https://pjreddie.com/darknet/yolo/) as well as the darknet source code itself.
 ### [imu_3dm_gx4](https://github.com/osu-uwrt/imu_3dm_gx4)
 This is the driver for our [LordMicrostrain IMU 3DM-GX4](https://www.microstrain.com/inertial/3dm-gx4-25).
+### ping_driver
+Coming soon - this driver will interface with the Blue Robotics Ping Sonar sensor.
 
-## Non-ROS Libraries
+## Other Libraries
 ### installation
 This folder contains a series of install scripts that will install the corresponding package to your Ubuntu machine.
 
@@ -54,21 +56,21 @@ You will see both a remote to your fork and to the main repo.
 # Installing Our Dependencies
 
 ## First-time Setup
-If you are setting up your computer for the first time to work with either the `riptide_software` or `eddy_software` repos, then you will likely need to install everything. Don't worry, we have an install script that does just that.
+If you are setting up your computer for the first time to work with either the `riptide_software` or `eddy_software` repo, then you will likely need to install everything. Don't worry, we have an install script that does just that.
 ```
 cd ~/osu-uwrt/riptide_dependencies/src/installation/
 ./install_everything.sh
 ```
-Now, you may go back to the `riptide_software` or `eddy_software` repo and continue where you left off with the instructions.
+Now, you may go back to the `riptide_software` or `eddy_software` repo and continue where you left off with the setup process.
 
-## Installing/Updating ROS-related Dependencies
-This repo is equipped with a script that handles all of this for you, and it will be updated as new submodules are added.
+## Installing/Updating Our ROS Packages
+This repo is equipped with a script that handles all of this for you, and it will be updated as new submodules are added. This update script enters each submodule, pulls the latest code from master, and then re-installs them onto your computer.
 ```
 cd ~/osu-uwrt/riptide_dependencies/src/
 ./update_rospkgs.sh
 ```
 
-## Installing non-ROS Dependencies
+## Installing All Other Libraries
 Search for the appropriate install script inside the `installation/` folder and run the script.
 ```
 cd ~/osu-uwrt/riptide_dependencies/src/installation
