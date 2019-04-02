@@ -5,11 +5,10 @@ if [[ $UID == 0 ]]; then
 	exit 1
 fi
 
-RIPDEP=~/osu-uwrt/riptide_dependencies
-
-${RIPDEP}/src/installation/install_ros_kinetic.sh
-${RIPDEP}/src/update_rospkgs.sh
-${RIPDEP}/src/installation/install_ceres.sh
-${RIPDEP}/src/installation/install_acoustics.sh
+install_ros_kinetic.sh
+../update_rospkgs.sh
+install_eigen.sh
+install_ceres.sh
+install_acoustics.sh
 
 echo "Installed all Riptide Dependencies"
