@@ -8,8 +8,8 @@ cd ${RIPDEP}/src/installation/tar_files/
 tar -zxf FrontPanel-Ubuntu16.04LTS-x64-5.0.2.tgz
 cd FrontPanel-Ubuntu16.04LTS-x64-5.0.2
 chmod +x install.sh
-sudo ./install.sh
-sudo cp API/libokFrontPanel.so /usr/lib/
+./install.sh
+cp API/libokFrontPanel.so /usr/lib/
 cd ..
 rm -rf FrontPanel-Ubuntu16.04LTS-x64-5.0.2/
 cd ..
@@ -24,11 +24,11 @@ else
 fi
 tar -zxf $fft_version.tar.gz
 cd $fft_version
-sudo ./configure
-sudo make
-sudo make install
+./configure
+make
+make install
 cd ..
 rm $fft_version.tar.gz
-sudo rm -rf $fft_version
+rm -rf $fft_version
 
 echo "Installed acoustics dependencies"
